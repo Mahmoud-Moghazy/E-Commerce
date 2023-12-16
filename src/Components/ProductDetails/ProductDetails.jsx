@@ -93,8 +93,8 @@ export default function ProductDetails({ userData }) {
             <div className="info my-5">
               <h4>{productDetails?.title}</h4>
               <p className=" my-3">{productDetails?.description}</p>
-              <p className=" text-danger">{productDetails?.brand.name}</p>
-              <p className=" text-danger">{productDetails?.category.name}</p>
+              <p className=" text-danger">{productDetails?.brand?.name}</p>
+              <p className=" text-danger">{productDetails?.category?.name}</p>
               <div className="price-rate d-flex justify-content-between">
                 <small className="text-info fs-6">
                   {productDetails?.priceAfterDiscount ? <><p className="text-decoration-line-through text-danger m-0">{productDetails?.price} </p><span>{productDetails?.priceAfterDiscount}</span></> : <span>{productDetails?.price}</span>}
