@@ -24,7 +24,7 @@ export default function Payment() {
 
   const onlinePayment = async (values) => {
     try {
-      const { data } = await axios.post(`https://route-ecommerce.onrender.com/api/v1/orders/checkout-session/${cartId}?url=https://Mahmoud-Moghazy.github.io/e-commerce/`,
+      const { data } = await axios.post(`https://route-ecommerce.onrender.com/api/v1/orders/checkout-session/${cartId}?url=https://Mahmoud-Moghazy.github.io/e-commerce`,
       {shippingAddress:values},
       {headers:headers});
       console.log(data);
@@ -68,7 +68,7 @@ export default function Payment() {
         if (res.status === "success") {
           window.open(res.session.url);
           setNumOfItems(0);
-          navigate("https://Mahmoud-Moghazy.github.io/e-commerce/")
+          navigate("https://Mahmoud-Moghazy.github.io/e-commerce")
         }
       }else if(paymentMethod === "cash") {
         let res = await cashOnDelivery(values);
