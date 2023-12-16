@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import { Link } from "react-router-dom";
+import ComingSoon from "../ComingSoon/ComingSoon";
 // import styles from './Brands.module.css';
 
 export default function Brands() {
@@ -30,16 +31,18 @@ export default function Brands() {
   }
   return (
   <>
-    <div className="container py-5">
-      <div className="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3">
-      {brands?.map((brand) => (
-            <Link to={`/brandDetails/${brand?._id}`} className="col" key={brand?._id}>
-              <figure className="figure">
-                <img src={brand?.image} className="figure-img w-100" alt={brand?.title} />
-              </figure>
-            </Link>
-          ))}
-      </div>
+      <div className="container py-5">
+      {brands.length === 0 ? <ComingSoon/> :
+        <div className="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3">
+        {brands?.map((brand) => (
+              <Link to={`/brandDetails/${brand?._id}`} className="col" key={brand?._id}>
+                <figure className="figure">
+                  <img src={brand?.image} className="figure-img w-100" alt={brand?.title} />
+                </figure>
+              </Link>
+            ))}
+        </div>}
+
     </div>
   </>
   )
