@@ -68,7 +68,7 @@ export default function Payment() {
         if (res.status === "success") {
           window.open(res.session.url);
           setNumOfItems(0);
-          navigate("/")
+          navigate("#/")
         }
       }else if(paymentMethod === "cash") {
         let res = await cashOnDelivery(values);
